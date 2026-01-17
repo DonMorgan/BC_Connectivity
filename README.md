@@ -2,9 +2,9 @@
 See https://github.com/BCDevExchange/Our-Project-Docs/blob/master/discussion/projectstates.md
 If you have bcgovr installed and you use RStudio, click the 'Insert BCDevex Badge' Addin. -->
 
-# BC_ConservationCorridors
+# BC_Connectivity
 
-This repository generates conservation networks. Two approaches are investigated:   
+This repository generates conservation connectivity options. Two approaches are investigated:   
 
 1. Ominscape - based on McRae et al 2016
 <https://www.conservationgateway.org/ConservationByGeography/NorthAmerica/UnitedStates/oregon/science/Documents/McRae_et_al_2016_PNW_CNS_Connectivity.pdf>.
