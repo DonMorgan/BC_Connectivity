@@ -11,18 +11,19 @@
 # See the License for the specific language governing permissions and limitations under the License.
 
 #Set RunDir and global variables
-RunDir<-"BC_ASlp41"
+RunDir<-"BCR_2_18Feb2026"
 dir.create(file.path(ConnDir,RunDir), showWarnings = FALSE)
 DirectionG<-list(c('North','South'),c('South','North'),c('East','West'),c('West','East'))
-pixSize<-3
+pixSize<-2
 
 #Resistance surfaces come from HumanFootprint.R
 #Resistance<-"resistance_surfaceP_NA"
+#Resistance<-"resistance_surfaceP2"
 #Resistance<-"resistance_surfaceP"
 #Resistance<-"resistance_surfaceN"
-#Resistance<-"resistance_surfaceR"
+Resistance<-"resistance_surfaceR"
 #Resistance<-"Pither_resistance_surface"
-Resistance<-"resistance_surface_PASlp40"
+#Resistance<-"resistance_surface_PASlp40"
 
 #AOI_tile<-st_read(file.path(ConnDir,paste0('EcoPstrata.gpkg')))
 #AOI_tile<-st_read(file.path(ConnDir,paste0('EcoRstrata.gpkg')))

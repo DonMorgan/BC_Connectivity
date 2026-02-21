@@ -18,7 +18,7 @@ Prov_crs<-crs(bc)
 #Provincial Raster to place rasters in the same reference
 BCr_file <- file.path(spatialOutDir,"BCr.tif")
 if (!file.exists(BCr_file)) {
-  BC<-bcmaps::bc_bound_hres(class='sf')
+  BC<-bcmaps::bc_bound_hres()
   saveRDS(BC,file='tmp/BC')
   BC_wbuff<-BC %>%
     st_buffer(dist=100000)
