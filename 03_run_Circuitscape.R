@@ -11,17 +11,17 @@
 # See the License for the specific language governing permissions and limitations under the License.
 
 #Set RunDir and global variables
-RunDir<-"BCR_2_18Feb2026"
+RunDir<-"BCP_10_22Nov2026"
 dir.create(file.path(ConnDir,RunDir), showWarnings = FALSE)
 DirectionG<-list(c('North','South'),c('South','North'),c('East','West'),c('West','East'))
-pixSize<-2
+pixSize<-10
 
 #Resistance surfaces come from HumanFootprint.R
 #Resistance<-"resistance_surfaceP_NA"
 #Resistance<-"resistance_surfaceP2"
-#Resistance<-"resistance_surfaceP"
+Resistance<-"resistance_surfaceP"
 #Resistance<-"resistance_surfaceN"
-Resistance<-"resistance_surfaceR"
+#Resistance<-"resistance_surfaceR"
 #Resistance<-"Pither_resistance_surface"
 #Resistance<-"resistance_surface_PASlp40"
 
@@ -66,7 +66,9 @@ CurMapTile_function<- function(i,pSize) {
 #Loop through each tile and generate a current map for each tile
   ClippedTileList<-lapply(1:nrow(AOI_tile), function (j) {
     CurrMap_DirectionTiles<-CurMapTile_function(j,pixSize)
-    CurMapMean <- Reduce("mean", CurrMap_DirectionTiles)
+    # Bug fix due to: Equal-weight mean across the 4 directional maps (Reduce("mean") would
+    # weight them 1/8, 1/8, 1/4, 1/2 due to nested pairwise averaging)
+    CurMapMean <- terra::app(rast(CurrMap_DirectionTiles), mean)
     writeRaster(CurMapMean, filename=file.path(ConnDir,RunDir,paste0('CurMapMean_',j,'.tif')), overwrite=TRUE)
     })
 
